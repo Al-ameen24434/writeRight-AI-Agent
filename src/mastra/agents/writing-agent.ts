@@ -1,7 +1,7 @@
 import { Agent } from "@mastra/core/agent";
 import { Memory } from "@mastra/memory";
 import { LibSQLStore } from "@mastra/libsql";
-
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import {
   grammarCheckTool,
   readabilityAnalyzerTool,
@@ -9,6 +9,11 @@ import {
   updateUserPreferencesTool,
 } from "../tools/writing-tools";
 import { scorers } from "../scorers/writing-scorer";
+
+// Initialize Google Gemini
+const google = createGoogleGenerativeAI({
+  apiKey: process.env.GOOGLE_API_KEY!,
+});
 
 export const writingAgent = new Agent({
   name: "WriteRight Writing Assistant",

@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "mastra dev",
-    "build": "mastra build",
-    "start": "mastra start"
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
@@ -17,14 +17,17 @@
     "node": ">=20.9.0"
   },
   "dependencies": {
+    "@ai-sdk/google": "^2.0.26",
     "@mastra/core": "^0.23.3",
     "@mastra/evals": "^0.14.2",
     "@mastra/libsql": "^0.16.1",
     "@mastra/loggers": "^0.10.18",
     "@mastra/memory": "^0.15.10",
+    "express": "^5.1.0",
     "zod": "^4.1.12"
   },
   "devDependencies": {
+    "@types/express": "^5.0.5",
     "@types/node": "^24.10.0",
     "mastra": "^0.17.7",
     "typescript": "^5.9.3"
